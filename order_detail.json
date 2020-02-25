@@ -1,0 +1,4 @@
+[
+{"prod_name":"pname1","prod_price":10,"discount":9,"prod_num":5,"prod_remark":"备注1"},
+{"prod_name":"pname2","prod_price":12,"discount":6,"prod_num":5,"prod_remark":"备注2"},
+]
