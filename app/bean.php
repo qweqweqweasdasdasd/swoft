@@ -68,7 +68,6 @@ return [
             // \Swoft\Whoops\WhoopsMiddleware::class,
             // Allow use @View tag
             \Swoft\View\Middleware\ViewMiddleware::class,
-            \App\Http\Middleware\ApiMiddleware::class,
         ],
         'afterMiddlewares' => [
             \Swoft\Http\Server\Middleware\ValidatorMiddleware::class
@@ -90,27 +89,17 @@ return [
     ],
     'db2.pool' => [
         'class'    => Pool::class,
-        'database' => bean('db'),
-        'minActive'   => 10,
-        'maxActive'   => 20,
-        'maxWait'     => 0,
-        'maxWaitTime' => 0,
-        'maxIdleTime' => 60,
+        'database' => bean('db2'),
     ],
     'db3'               => [
         'class'    => Database::class,
-        'dsn'      => 'mysql:dbname=swoft;host=127.0.0.1',
+        'dsn'      => 'mysql:dbname=test2;host=127.0.0.1',
         'username' => 'root',
-        'password' => 'root',
+        'password' => 'swoft123456'
     ],
     'db3.pool'          => [
         'class'    => Pool::class,
-        'database' => bean('db3'),
-        'minActive'   => 10,
-        'maxActive'   => 20,
-        'maxWait'     => 0,
-        'maxWaitTime' => 0,
-        'maxIdleTime' => 60,
+        'database' => bean('db3')
     ],
     'migrationManager'  => [
         'migrationPath' => '@database/Migration',

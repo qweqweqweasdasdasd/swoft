@@ -36,7 +36,7 @@ class AccountController
 
         $token = JWT::encode($tokenParam,$private,$type);
         echo $token . PHP_EOL;
-        
+
         return $response->withData(['token'=>$token]);
         //var_dump($private);die();
 

@@ -48,9 +48,11 @@ class TestController
     /**
      * @RequestMapping(route="sunny")
      * @Middleware(AuthMiddleware::class)
+     * @param Request $request
      */
-    public function sunny()
+    public function sunny(Request $request)
     {
+        var_dump($request->user);
         echo time() . PHP_EOL;
     }
 
