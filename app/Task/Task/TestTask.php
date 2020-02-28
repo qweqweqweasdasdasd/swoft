@@ -32,6 +32,7 @@ class TestTask
      */
     public function getList(int $id, string $default = 'def'): array
     {
+        echo "qweqwe".PHP_EOL;
         return [
             'list'    => [1, 3, 3],
             'id'      => $id,

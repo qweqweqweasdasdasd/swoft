@@ -31,6 +31,8 @@ class FinishListener implements EventHandlerInterface
      */
     public function handle(EventInterface $event): void
     {
-        CLog::info(context()->getTaskUniqid());
+        echo "finisListener".PHP_EOL;
+
+        //CLog::info(context()->getTaskUniqid());
     }
 }

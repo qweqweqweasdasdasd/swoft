@@ -10,6 +10,7 @@
 
 namespace App\Exception\Handler;
 
+use App\Lib\Message;
 use Swoft\Error\Annotation\Mapping\ExceptionHandler;
 use Swoft\Http\Message\Response;
 use Swoft\Http\Server\Exception\Handler\AbstractHttpErrorHandler;
@@ -41,11 +42,10 @@ class HttpExceptionHandler extends AbstractHttpErrorHandler
 
         // Debug is false
         if (!APP_DEBUG) {
-            return $response->withStatus(500)->withContent($e->getMessage());
-//            return $response->withStatus(500)
-//                            ->withData([
-//                                'message' => $e->getMessage(),
-//                            ]);
+            //return $response->withStatus(500)->withContent($e->getMessage());
+            $data = Message::error($e->getMessage());
+            return $response->withStatus(500)
+                            ->withData($data);
         }
 
         $data = [

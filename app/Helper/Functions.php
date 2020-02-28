@@ -60,3 +60,20 @@ function tx(callable $func,&$res=null)
         DB::rollBack();
     }
 }
+
+
+/**
+ * 生成随机数据
+ */
+if(!function_exists('randNum')){
+    function randNum($len = 4)
+    {
+        $chars = "1234567890";
+        $string = '';
+        for ($i = 0; $i < $len ;$i++){
+            $rand = rand(0,strlen($chars)-1);
+            $string .= substr($chars,$rand,1);
+        }
+        return $string;
+    }
+}

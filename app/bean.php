@@ -7,8 +7,10 @@
  * @contact  group@swoft.org
  * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
+use App\Task\Crontab\TimeTask;
 use App\Common\DbSelector;
 use App\Process\MonitorProcess;
+use App\Process\SunnyProcess;
 use Swoft\Crontab\Process\CrontabProcess;
 use Swoft\Db\Pool;
 use Swoft\Http\Server\HttpServer;
@@ -45,8 +47,10 @@ return [
             // 'ws' => bean('wsServer')
         ],
         'process'  => [
-//            'monitor' => bean(MonitorProcess::class)
-//            'crontab' => bean(CrontabProcess::class)
+            //'monitor' => bean(MonitorProcess::class)
+            //'monitor' => bean(SunnyProcess::class),
+            'crontab' => bean(CrontabProcess::class)
+             //'crontab' => bean(TestTask::class)
         ],
         'on'       => [
 //            SwooleEvent::TASK   => bean(SyncTaskListener::class),  // Enable sync task
