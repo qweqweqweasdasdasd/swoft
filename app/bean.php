@@ -11,6 +11,10 @@ use App\Task\Crontab\TimeTask;
 use App\Common\DbSelector;
 use App\Process\MonitorProcess;
 use App\Process\SunnyProcess;
+use App\Process\RabbitMQProcess;
+use App\Process\SubscribeProcess;
+use App\Process\Subscribe02Process;
+use App\Process\MQworkProcess;
 use Swoft\Crontab\Process\CrontabProcess;
 use Swoft\Db\Pool;
 use Swoft\Http\Server\HttpServer;
@@ -47,9 +51,13 @@ return [
             // 'ws' => bean('wsServer')
         ],
         'process'  => [
-            //'monitor' => bean(MonitorProcess::class)
+            //'monitor' => bean(MonitorProcess::class),
             //'monitor' => bean(SunnyProcess::class),
-            'crontab' => bean(CrontabProcess::class)
+            //'monitor1' => bean(RabbitMQProcess::class),
+            //'monitor2' => bean(MQworkProcess::class),
+            'monitor3' => bean(SubscribeProcess::class),
+            'monitor4' => bean(Subscribe02Process::class)
+            //'crontab' => bean(CrontabProcess::class)
              //'crontab' => bean(TestTask::class)
         ],
         'on'       => [

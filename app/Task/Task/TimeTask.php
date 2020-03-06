@@ -3,6 +3,7 @@
 
 namespace App\Task\Task;
 
+use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Task\Annotation\Mapping\Task;
 use Swoft\Task\Annotation\Mapping\TaskMapping;
 use Swoft\Crontab\Annotaion\Mapping\Cron;
