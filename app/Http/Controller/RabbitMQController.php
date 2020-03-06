@@ -68,7 +68,7 @@ class RabbitMQController
         $channel = $connection->channel();
 
         $channel->exchange_declare('logs', 'fanout', false, false, false);
-        $data = "hello this is exchange!";
+        $data = "hello this is subscribe model!";
 
         $msg = new AMQPMessage($data);
         $channel->basic_publish($msg, 'logs');
@@ -77,4 +77,45 @@ class RabbitMQController
         $connection->close();
     }
 
+    /**
+     * @RequestMapping(route="route")
+     */
+    public function route()
+    {
+        $connection = new AMQPStreamConnection("localhost",5672,"wy","wy");
+        $channel = $connection->channel();
+
+        $channel->exchange_declare('direct_logs', 'direct', false, false, false);
+
+        $data = "hello this is routing model!";
+        $msg = new AMQPMessage($data);
+
+        $route_key = "info";
+        $channel->basic_publish($msg, 'direct_logs', "info");
+
+
+
+        $channel->close();
+        $connection->close();
+    }
+
+    /**
+     *  @RequestMapping(route="topic")
+     */
+    public function topic()
+    {
+        $connection = new AMQPStreamConnection("localhost",5672,"wy","wy");
+        $channel = $connection->channel();
+
+        $channel->exchange_declare('topic_logs', 'topic', false, false, false);
+
+        $data = "hello this is topic model!";
+        $msg = new AMQPMessage($data);
+
+        $route_key = "info.123";
+        $channel->basic_publish($msg, 'topic_logs', $route_key);
+
+        $channel->close();
+        $connection->close();
+    }
 }

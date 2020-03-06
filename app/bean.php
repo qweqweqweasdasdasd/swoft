@@ -14,6 +14,10 @@ use App\Process\SunnyProcess;
 use App\Process\RabbitMQProcess;
 use App\Process\SubscribeProcess;
 use App\Process\Subscribe02Process;
+use App\Process\RouteProcess;
+use App\Process\RouteProcess02;
+use App\Process\TopicProcess;
+use App\Process\TopicProcess02;
 use App\Process\MQworkProcess;
 use Swoft\Crontab\Process\CrontabProcess;
 use Swoft\Db\Pool;
@@ -55,8 +59,12 @@ return [
             //'monitor' => bean(SunnyProcess::class),
             //'monitor1' => bean(RabbitMQProcess::class),
             //'monitor2' => bean(MQworkProcess::class),
-            'monitor3' => bean(SubscribeProcess::class),
-            'monitor4' => bean(Subscribe02Process::class)
+            //'monitor3' => bean(SubscribeProcess::class),
+            //'monitor4' => bean(Subscribe02Process::class)
+            //'monitor5' => bean(RouteProcess::class),
+            //'monitor6' => bean(RouteProcess02::class),
+            'monitor7' => bean(TopicProcess::class),
+            'monitor8' => bean(TopicProcess02::class),
             //'crontab' => bean(CrontabProcess::class)
              //'crontab' => bean(TestTask::class)
         ],
